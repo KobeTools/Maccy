@@ -145,6 +145,10 @@
 		DAFE2DDA268A521B00990986 /* String+Shortened.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFE2DD9268A521A00990986 /* String+Shortened.swift */; };
 		DAFE2DE9268A9B1B00990986 /* HistoryItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFE2DE8268A9B1B00990986 /* HistoryItemTests.swift */; };
 		DAFEF0B8249D7DEE006029E8 /* KeyboardShortcuts.Name+Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEF0B7249D7DEE006029E8 /* KeyboardShortcuts.Name+Shortcuts.swift */; };
+		8C85E07DF44F47DE9EFACA39 /* SecurePasteShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58EC7DC807749E7ADF0D06F /* SecurePasteShortcut.swift */; };
+		BB50E606071644D09032514A /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6A6A75AA5A4EF890D97BF0 /* KeychainHelper.swift */; };
+		882228BCBF104B0A8B0C1934 /* SecurePasteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F598826094C42C88BD11874 /* SecurePasteManager.swift */; };
+		DEC8549110A44A83A84537CD /* SecurePasteSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEAE0CFC3E7461BA291FB0F /* SecurePasteSettingsPane.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -555,6 +559,10 @@
 		DAFE2DD9268A521A00990986 /* String+Shortened.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Shortened.swift"; sourceTree = "<group>"; };
 		DAFE2DE8268A9B1B00990986 /* HistoryItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemTests.swift; sourceTree = "<group>"; };
 		DAFEF0B7249D7DEE006029E8 /* KeyboardShortcuts.Name+Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardShortcuts.Name+Shortcuts.swift"; sourceTree = "<group>"; };
+		E58EC7DC807749E7ADF0D06F /* SecurePasteShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePasteShortcut.swift; sourceTree = "<group>"; };
+		EE6A6A75AA5A4EF890D97BF0 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		1F598826094C42C88BD11874 /* SecurePasteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePasteManager.swift; sourceTree = "<group>"; };
+		2EEAE0CFC3E7461BA291FB0F /* SecurePasteSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePasteSettingsPane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -661,6 +669,7 @@
 				DA44C5E32C1C858400819834 /* StorageSettingsPane.swift */,
 				DA689FAE2C1CD3B00009B887 /* StorageSettings.strings */,
 				DAA365CD2C4BF9DD00A394F8 /* PinsSettingsPane.swift */,
+				2EEAE0CFC3E7461BA291FB0F /* SecurePasteSettingsPane.swift */,
 				DAA365CF2C4C147400A394F8 /* PinsSettings.strings */,
 			);
 			path = Settings;
@@ -835,6 +844,9 @@
 				2F1A79BF2C6DFB7800C98EBD /* SearchVisibility.swift */,
 				2F0EC77C2E773314003E2EA9 /* Selection.swift */,
 				DAA5ACC92C1BEE8A00B58513 /* SoftwareUpdater.swift */,
+				E58EC7DC807749E7ADF0D06F /* SecurePasteShortcut.swift */,
+				EE6A6A75AA5A4EF890D97BF0 /* KeychainHelper.swift */,
+				1F598826094C42C88BD11874 /* SecurePasteManager.swift */,
 				DA696BCD240177E800DE80CF /* Sorter.swift */,
 				DA243D132C2F66DD0012A27F /* Storage.swift */,
 				DA81D673252A056B009977BC /* Throttler.swift */,
@@ -1112,6 +1124,9 @@
 				DA9C3C652C211B5F0056795D /* AdvancedSettingsPane.swift in Sources */,
 				2FA81FE02E43D9B700C12F92 /* Dictionary+RemoveItem.swift in Sources */,
 				DAA5ACCA2C1BEE8A00B58513 /* SoftwareUpdater.swift in Sources */,
+				8C85E07DF44F47DE9EFACA39 /* SecurePasteShortcut.swift in Sources */,
+				BB50E606071644D09032514A /* KeychainHelper.swift in Sources */,
+				882228BCBF104B0A8B0C1934 /* SecurePasteManager.swift in Sources */,
 				2F9B42F12F1A499D006548E5 /* ToolbarView.swift in Sources */,
 				DAA5ACB22C1B3F8800B58513 /* GeneralSettingsPane.swift in Sources */,
 				DA1969122C3F0DD200258481 /* HistoryItemView.swift in Sources */,
@@ -1128,6 +1143,7 @@
 				DA19691A2C3F369800258481 /* HeaderView.swift in Sources */,
 				DA555F082CF0F994009608BD /* ApplicationImageCache.swift in Sources */,
 				DA44C5E42C1C858400819834 /* StorageSettingsPane.swift in Sources */,
+				DEC8549110A44A83A84537CD /* SecurePasteSettingsPane.swift in Sources */,
 				DA05B5142C234DCF006980FE /* HistoryItemContent.swift in Sources */,
 				DAA072D32C40A961006DDFD2 /* Color+Random.swift in Sources */,
 				DA05B5152C234DCF006980FE /* HistoryItem.swift in Sources */,

@@ -16,6 +16,7 @@ class AppState: Sendable {
   var footer: Footer
   var navigator: NavigationManager
   var preview: SlideoutController
+  let securePaste = SecurePasteManager()
 
   var searchVisible: Bool {
     if !Defaults[.showSearch] { return false }
@@ -153,6 +154,13 @@ class AppState: Sendable {
             toolbarIcon: NSImage.gearshape2!
           ) {
             AdvancedSettingsPane()
+          },
+          Settings.Pane(
+            identifier: Settings.PaneIdentifier.securePaste,
+            title: "Secure Paste",
+            toolbarIcon: NSImage.key!
+          ) {
+            SecurePasteSettingsPane()
           }
         ]
       )
