@@ -9,26 +9,17 @@ class SoftwareUpdater {
   }
 
   private var updater: SPUUpdater
-  private var automaticallyChecksForUpdatesObservation: NSKeyValueObservation?
 
   private let updaterController = SPUStandardUpdaterController(
-    startingUpdater: true,
+    startingUpdater: false,
     updaterDelegate: nil,
     userDriverDelegate: nil
   )
 
   init() {
     updater = updaterController.updater
-    automaticallyChecksForUpdatesObservation = updater.observe(
-      \.automaticallyChecksForUpdates,
-      options: [.initial, .new, .old]
-    ) { [unowned self] updater, change in
-      guard change.newValue != change.oldValue else {
-        return
-      }
-
-      self.automaticallyChecksForUpdates = updater.automaticallyChecksForUpdates
-    }
+    // Fork builds from source: never start Sparkle or pull upstream binaries.
+    updater.automaticallyChecksForUpdates = false
   }
 
   func checkForUpdates() {
