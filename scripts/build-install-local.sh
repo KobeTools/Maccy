@@ -10,6 +10,10 @@ INSTALL_DIR="${INSTALL_DIR:-/Applications}"
 APP_PATH="$DERIVED_DATA_PATH/Build/Products/$CONFIGURATION/$PROJECT.app"
 DEST_PATH="$INSTALL_DIR/$PROJECT.app"
 
+# No hardened runtime: its library validation refuses to load frameworks that
+# aren't signed by the app's Team ID, and ad-hoc builds have none (Sparkle comes
+# prebuilt and vendor-signed). It's only required for notarized distribution;
+# the sandbox entitlements still apply.
 # Ad-hoc sign through xcodebuild (not CODE_SIGNING_ALLOWED=NO) so the sandbox
 # entitlements are kept and the app reuses its existing history container.
 echo "Building $PROJECT ($CONFIGURATION) with ad-hoc signing..."
@@ -25,6 +29,7 @@ xcodebuild \
   CODE_SIGN_STYLE=Manual \
   DEVELOPMENT_TEAM="" \
   PROVISIONING_PROFILE_SPECIFIER="" \
+  ENABLE_HARDENED_RUNTIME=NO \
   build
 
 if [[ ! -d "$APP_PATH" ]]; then
