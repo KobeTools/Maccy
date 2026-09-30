@@ -10,13 +10,17 @@ INSTALL_DIR="${INSTALL_DIR:-/Applications}"
 APP_PATH="$DERIVED_DATA_PATH/Build/Products/$CONFIGURATION/$PROJECT.app"
 DEST_PATH="$INSTALL_DIR/$PROJECT.app"
 
+# Stable local identity from mactools' scripts/create-signing-identity.sh keeps
+# macOS privacy grants across rebuilds; otherwise sign ad-hoc.
+SIGN_IDENTITY="${SIGN_IDENTITY:-$(security find-identity -v -p codesigning 2>/dev/null | grep -q '"KobeTools Dev"' && echo "KobeTools Dev" || echo -)}"
+
 # No hardened runtime: its library validation refuses to load frameworks that
 # aren't signed by the app's Team ID, and ad-hoc builds have none (Sparkle comes
 # prebuilt and vendor-signed). It's only required for notarized distribution;
 # the sandbox entitlements still apply.
 # Ad-hoc sign through xcodebuild (not CODE_SIGNING_ALLOWED=NO) so the sandbox
 # entitlements are kept and the app reuses its existing history container.
-echo "Building $PROJECT ($CONFIGURATION) with ad-hoc signing..."
+echo "Building $PROJECT ($CONFIGURATION) (signing: $SIGN_IDENTITY)..."
 
 xcodebuild \
   -project "$REPO_ROOT/$PROJECT.xcodeproj" \
@@ -25,7 +29,7 @@ xcodebuild \
   -destination "platform=macOS" \
   -derivedDataPath "$DERIVED_DATA_PATH" \
   -disableAutomaticPackageResolution \
-  CODE_SIGN_IDENTITY="-" \
+  CODE_SIGN_IDENTITY="$SIGN_IDENTITY" \
   CODE_SIGN_STYLE=Manual \
   DEVELOPMENT_TEAM="" \
   PROVISIONING_PROFILE_SPECIFIER="" \
